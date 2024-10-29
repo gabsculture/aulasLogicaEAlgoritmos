@@ -1,10 +1,9 @@
 #include <stdio.h>
 
 int main() {
-    int linhas, colunas;
+    int linhas = 5;
+    int colunas;
 
-    printf("Digite a quantidade de linhas:");
-    scanf("%d", &linhas);
     printf("Digite a quantidade de colunas: ");
     scanf("%d", &colunas);
     int matrizA[linhas][colunas];
