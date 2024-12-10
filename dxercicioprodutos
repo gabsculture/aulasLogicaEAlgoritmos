@@ -1,0 +1,47 @@
+/*
+* Escreva um programa que tenha uma struct com dados referentes a produtos
+vendidos por uma loja, a estrutura deve conter o código do produto, nome do produto
+e seu valor. Após elabore uma função que retorne a soma dos valores dos produtos
+vendidos.
+O programa deve armazenar as informações de 5 produtos em um vetor.
+ */
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    int codigo;
+    char nome[30];
+    float valor;
+} Produto;
+
+Produto setProduto(int codigo, char nome[], float valor) {
+    Produto produto;
+    produto.codigo = codigo;
+    strcpy(produto.nome, nome);
+    produto.valor = valor;
+    return produto;
+}
+
+float retornaSomaValor(Produto produtos[]) {
+    float soma = 0.0;
+    for(int i = 0; i < 5; i++) {
+        soma += produtos[i].valor;
+    }
+    return soma;
+}
+
+void imprimeSoma(float valor) {
+    printf("O valor dos produtos vendidos eh: %2.f", valor);
+}
+
+int main(void) {
+    Produto geladeira = setProduto(1, "geladeira", 1234.5);
+    Produto microondas = setProduto(2, "microondas", 200);
+    Produto mesa = setProduto(3, "mesa", 150);
+    Produto aspirador = setProduto(4, "aspirador", 123);
+    Produto cama = setProduto(5, "cama", 456);
+
+    Produto produtosVendidos[5] = {geladeira, microondas, mesa, aspirador, cama};
+    float valorProdutosVendidos = retornaSomaValor(produtosVendidos);
+    imprimeSoma(valorProdutosVendidos);
+}
